@@ -11,15 +11,24 @@
         {% csrf_token %}
         <button>create task</button>
     </form>
+
+    <a href="{% url 'task_api_view' %}">task api view</a>
     
     <hr>
-    
-    {% for task in tasks %}
-    <p>Task name: {{ task.task_name }} | Category: {{ task.category }}</p>
-    {% endfor %}
+
+    <div class="tasks_container"></div>
+
     <script>
-        const page_title = document.getElementsByTagName('title')[0]
-        page_title.textContent = 'Test'
+        const TASK_URL = "{% url 'task_api_view' %}";
+        const tasks_container = document.getElementsByClassName('tasks_container')[0];
+        
+        fetch(TASK_URL)
+        .then(res => res.json())
+        .then(body => {
+            Object.values(body).forEach(element => {
+                console.log(element);
+            })
+        })
     </script>
 </body>
 </html>

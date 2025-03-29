@@ -36,10 +36,6 @@ h3 {
     flex-direction: column;
 }
 
-.inner-container-1 form input {
-    margin-bottom: 1em;
-}
-
 .inner-container-1 form .form-label {
     margin: 0 auto;
 }

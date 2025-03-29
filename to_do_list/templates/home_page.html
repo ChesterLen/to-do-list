@@ -26,10 +26,10 @@
                     <input type="text" id="task_name">
 
                     <legend class="form-legend">Task description:</legend>
-                    <textarea></textarea>
+                    <textarea id="task-description"></textarea>
 
-                    <!-- <label for="task_category" class="form_label">Task category</label> -->
-                    <!-- <input type="text" id="task_category"> -->
+                    <label for="task-category" class="form-label">Task category</label>
+                    <input type="text" id="task-category">
 
                     <button id="create-task-btn">create task</button>
                 </form>
@@ -42,64 +42,8 @@
     </main>
     <script>
         const BASE_URL = "{% url 'task_api_view' %}";
-
-        const taskNameInput = document.getElementById('task_name');
-        const taskDescritptionInput = document.getElementById('task_description');
-        const taskCategoryInput = document.getElementById('task_category');
-
-        const innerContainer2 = document.getElementsByClassName('inner-container-2')[0];
-        const innerContainer3 = document.getElementsByClassName('inner-container-3')[0];
-        
-        const createTaskBtn = document.getElementById('create-task-btn');
-        const loadTasksBtn = document.getElementsByClassName('load-tasks')[0];
-
-        createTaskBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            console.log(taskNameInput.value);
-
-            const taskData = {
-                'task_name': taskNameInput.value,
-                'task_description': taskDescritptionInput.value,
-            }
-
-            fetch(BASE_URL, {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(taskData)
-            })
-            .then(clearForm);
-
-            function clearForm() {
-                taskNameInput.value = '';
-                taskDescritptionInput.value = '';
-            };
-        });
-
-        loadTasksBtn.addEventListener('click', () => {
-            fetch(BASE_URL)
-            .then(res => res.json())
-            .then(body => {
-                Object.values(body).forEach(task => innerContainer2.appendChild(renderTask(task)))
-            })
-        })
-
-        function renderTask(task) {
-            const subContainer = document.createElement('div');
-            subContainer.className = 'subcontainer';
-
-            const h3 = document.createElement('h3');
-            h3.textContent = task.task_name;
-
-            const h4 = document.createElement('h4');
-            h4.textContent = task.task_description;
-
-            subContainer.appendChild(h3);
-            subContainer.appendChild(h4);
-
-            return subContainer;
-        }
     </script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>

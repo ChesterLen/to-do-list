@@ -20,9 +20,27 @@ h3 {
 }
 
 .inner-container-1 {
+    font-family: 'Roboto', 'sans-serif';
     flex-basis: 40%;
     min-height: 40vh;
-    background: red;
+    background: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em;
+}
+
+.inner-container-1 form {
+    display: flex;
+    flex-direction: column;
+}
+
+.inner-container-1 form input {
+    margin-bottom: 1em;
+}
+
+.inner-container-1 form .form_label {
+    margin: 0 auto;
 }
 
 .inner-container-2 {
@@ -43,6 +61,7 @@ h3 {
     background: yellow;
 }
 
-#label_task_name {
-    color: #fff;
+#create-task-btn {
+    width: 45%;
+    margin: 1em auto;
 }

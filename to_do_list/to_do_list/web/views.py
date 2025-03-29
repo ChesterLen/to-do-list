@@ -9,7 +9,7 @@ class TaskSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class RestApiTaskView(api_views.ListAPIView):
+class RestApiTaskView(api_views.ListCreateAPIView):
     serializer_class = TaskSerializer
     queryset = models.Task.objects.all()
 

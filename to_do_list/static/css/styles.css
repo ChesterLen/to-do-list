@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-h3 {
+.h3 {
     font-family: 'Roboto', 'sans-serif';
     color: #fff;
     padding: 1em;
@@ -56,15 +56,43 @@ hr {
 }
 
 .inner-container-2 {
+    font-family: 'Roboto', 'sans-serif';
     flex-basis: 40%;
     min-height: 40vh;
     border: 5px rgb(253, 80, 53) solid;
 }
 
+.inner-container-2 h2 {
+    text-align: center;
+    color: rgb(253, 80, 53);
+}
+
+.inner-container-2 hr {
+    border: 1.5px rgb(253, 80, 53) solid;
+}
+
+.inner-inner-container-2 {
+    margin: 1em;
+}
+
 .inner-container-3 {
+    font-family: 'Roboto', 'sans-serif';
     flex-basis: 40%;
     min-height: 40vh;
     border: 5px rgb(53, 253, 133) solid;
+}
+
+.inner-container-3 h2 {
+    text-align: center;
+    color: rgb(53, 253, 133);
+}
+
+.inner-container-3 hr {
+    border: 1.5px rgb(53, 253, 133) solid;
+}
+
+.inner-inner-container-3 {
+    margin: 1em;
 }
 
 #create-task-btn {

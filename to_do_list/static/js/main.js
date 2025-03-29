@@ -17,7 +17,7 @@ createTaskBtn.addEventListener('click', (e) => {
         'task_name': taskNameInput.value,
         'task_description': taskDescritptionInput.value,
         'category': taskCategoryInput.value
-    }
+    };
 
     fetch(BASE_URL, {
         method: 'POST',
@@ -44,16 +44,18 @@ loadTasksBtn.addEventListener('click', () => {
                 }
             });
         });
-})
+});
 
 function renderTask(task) {
     const subContainer = document.createElement('div');
     subContainer.className = 'subcontainer';
 
     const h3 = document.createElement('h3');
+    h3.className = 'task-h3';
     h3.textContent = task.task_name;
 
     const h4 = document.createElement('h4');
+    h4.className = 'task-h4';
     h4.textContent = task.task_description;
 
     subContainer.appendChild(h3);

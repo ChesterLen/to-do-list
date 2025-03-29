@@ -3,7 +3,9 @@ const taskDescritptionInput = document.getElementById('task-description');
 const taskCategoryInput = document.getElementById('task-category');
 
 const innerContainer2 = document.getElementsByClassName('inner-container-2')[0];
+const innerInnerContainer2 = document.getElementsByClassName('inner-inner-container-2')[0];
 const innerContainer3 = document.getElementsByClassName('inner-container-3')[0];
+const innerInnerContainer3 = document.getElementsByClassName('inner-inner-container-3')[0];
 
 const createTaskBtn = document.getElementById('create-task-btn');
 const loadTasksBtn = document.getElementsByClassName('load-tasks')[0];
@@ -29,7 +31,18 @@ loadTasksBtn.addEventListener('click', () => {
     fetch(BASE_URL)
         .then(res => res.json())
         .then(body => {
-            Object.values(body).forEach(task => innerContainer2.appendChild(renderTask(task)))
+            innerInnerContainer2.innerHTML = '';
+            innerInnerContainer3.innerHTML = '';
+
+            Object.values(body).forEach(task => {
+                if (task.category === 'important') {
+                    innerInnerContainer2.appendChild(renderTask(task));
+                    innerContainer2.appendChild(innerInnerContainer2);
+                } else {
+                    innerInnerContainer3.appendChild(renderTask(task));
+                    innerContainer3.appendChild(innerInnerContainer3);
+                }
+            });
         });
 })
 
@@ -43,12 +56,8 @@ function renderTask(task) {
     const h4 = document.createElement('h4');
     h4.textContent = task.task_description;
 
-    const h4_2 = document.createElement('h4');
-    h4_2.textContent = task.category;
-
     subContainer.appendChild(h3);
     subContainer.appendChild(h4);
-    subContainer.appendChild(h4_2);
 
     return subContainer;
 };

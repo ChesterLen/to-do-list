@@ -88,7 +88,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = '/to_do_list/static/'
-STATICFILE_DIRS = [os.path.join(BASE_DIR / 'to_do_list/static')]
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / 'static/']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

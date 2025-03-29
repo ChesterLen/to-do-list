@@ -6,17 +6,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="to_do_list/static/styles.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css">
     <title>Document</title>
 </head>
 
 <body>
     <header>
-        <h>H1</h>
+        <h3>TODO App</h3>
     </header>
     <main>
-        <form></form>
-        <div class="tasks_container"></div>
+        <div class="main-container">
+            <div class="inner-container-1">
+                <form>
+                    <label for="task_name" id="label_task_name">Task name: </label>
+                    <input type="tel" id="task_name">
+                </form>
+            </div>
+            <div class="inner-container-2"></div>
+            <div class="inner-container-3"></div>
+            <div class="inner-container-4"></div>
+        </div>
     </main>
     <script>
         const TASK_URL = "{% url 'task_api_view' %}";

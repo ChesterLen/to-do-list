@@ -1,9 +1,7 @@
 from rest_framework import serializers
-from django.views import generic as views
-from to_do_list.web import forms, models
-from django.urls import reverse_lazy
+from to_do_list.web import models
 from rest_framework import generics as api_views
-
+from django.views import generic as views
 
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
@@ -16,12 +14,5 @@ class RestApiTaskView(api_views.ListAPIView):
     queryset = models.Task.objects.all()
 
 
-class CreateTaskView(views.CreateView):
-    form_class = forms.CreateTaskForm
-    template_name = 'create_task.html'
-    success_url = reverse_lazy('create_task')
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['tasks'] = models.Task.objects.all()
-        return context
+class HomePageView(views.TemplateView):
+    template_name = 'home_page.html'
